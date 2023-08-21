@@ -22,8 +22,12 @@ class SteamPublisher:
     SteamPublisher queries the steam API and publishes events to Ensign.
     """
 
-    def __init__(self, steam_key=None, ensign_key_path=None):
-        """        
+    def __init__(self, interval=500, steam_key=None, ensign_key_path=None):
+        """   
+        interval: integer, default: 500
+            Number of milliseconds to wait for between individual publishing calls to 
+            ensign
+
         steam_key : string, default: None
             You can put your API key for the Steam Developer API here. If you leave it
             blank, the publisher will attempt to read it from the STEAM_API_KEY environment 
@@ -33,6 +37,8 @@ class SteamPublisher:
             The file path to your ensign API key. If you leave it blank, the publisher 
             will attempt to read it from the ENSIGN_KEY_PATH environment variables.
         """
+        self.interval = interval
+
         if steam_key is None:
             self.steam_key = os.getenv("STEAM_API_KEY")
         else:
