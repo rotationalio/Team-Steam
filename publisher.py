@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 
 # GLOBAL VARIABLES
 GAME_LIST_ENDPOINT = "https://api.steampowered.com/ISteamApps/GetAppList/v2/"
-ALL_GAMES_TOPIC = "all_games_json"
+ALL_GAMES_TOPIC = "ISteamApps_GetAppList_v2 "
 
 
 
